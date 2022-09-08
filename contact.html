@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous contacter</title>
+    <link rel="shortcut icon" href="img/c_af.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <link rel="stylesheet" href="style_contact.css">
+    <script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          sitekey : '6LeyrqwhAAAAAI74dLykWNaabKMVwYLDfwHC0XB0'
+        });
+      };
+      
+       
+      window.onload = function() {
+        var nom = document.forms["Form"]["Nom"];
+        nom.oninvalid = function() {
+          document.querySelector(".request-Nom").style.visibility = "visible";
+        }
+        
+        var prenom = document.forms["Form"]["Prénom"];
+        prenom.oninvalid = function() {
+          document.querySelector(".request-Prenom").style.visibility="visible";
+        }
+
+        var email = document.forms["Form"]["Email"];
+        email.oninvalid = function() {
+          document.querySelector(".request-Email").style.visibility="visible";
+        }
+
+        var message = document.forms["Form"]["Message"];
+        message.oninvalid = function() {
+          document.querySelector(".request-Message").style.visibility="visible";
+        }
+
+        var recaptcha = document.forms["Form"]["g-recaptcha-response"];
+        recaptcha.required = true;
+        recaptcha.oninvalid = function() {
+          document.querySelector(".request-Captcha").style.visibility="visible";
+        }
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+          <ul>
+            <a href="index.html"><img id="b_principal" src="img/Club.png" alt="" height="30px"></a>
+            <li id="premier_lien"><a href="index.html">CA.com</a></li>
+            <li id="icon"><a href="https://www.instagram.com/clubafricain__officiel/" target="_blank"><i
+              class="fa fa-instagram"></i></a></li>
+            <li id="icon"><a href="https://www.facebook.com/clubafricain.com.tn/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li id="icon"><a href="https://twitter.com/clubafricain?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+              target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li id="suivez">Suivez les pages du Club Africain</li>
+          </ul>
+        </nav>
+        
+    </header>
+    <section>
+      <h1>Formulaire de Contact</h1>
+      <form id="Form" action="https://formsubmit.co/fe2a44c5bbb907dfac0b131b9c4da0e9" method="POST" onchange=window.onload>
+        <input type="text" name="_honey" style="display: none;">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://skanghr07.github.io/ca.com/after_submition.html">
+        <fieldset>
+            <legend>Vos informations</legend>
+            <div id="nom">
+              <label>Nom</label>
+              <br>
+              <input type="text" name="Nom" required>
+              <label class="request-Nom">Veuillez saisir votre nom</label>
+              </div>
+            <div id="prenom">
+              <label>Prénom</label>
+              <br>
+              <input type="text" name="Prénom" required>
+              <label class="request-Prenom">Veuillez saisir votre prénom</label>
+            </div>
+            <div id="email">
+              <label>Email</label>
+              <br>
+              <input type="email" name="Email" required>
+              <label class="request-Email">Veuillez saisir votre email</label>
+            </div>
+            <div id="tel">
+              <label>Tel <span>(Optionnel)</span></label>
+              <br>
+              <br>
+              <input id="phone" type="tel" name="Tel">
+            </div>
+            <br>
+            <div id="txt">
+              <label>Message</label>
+              <br>
+              <textarea placeholder="Questions, remarques, commentaires..." name="Message" required></textarea>
+              <label class="request-Message">Veuillez saisir votre message</label>
+            </div>
+            <br>
+            <div id="html_element"></div>
+            <br>
+            <label class="request-Captcha">Veuillez compléter reCAPTCHA</label>
+            <button type="submit"><i class="fa fa-send"></i> Valider</button>
+          </fieldset>
+      </form>
+      
+    </section>
+    
+    <script>
+      var input = document.querySelector("#phone");
+      window.intlTelInput(input, {
+                separateDialCode: true,
+                preferredCountries: ["tn"]
+            });
+          
+    </script>
+    
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+    </script>
+
+
+    <footer>
+      <div id="info">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="cgu.html">Condition d'utilisation</a></li>
+        </ul>
+      </div>
+      <div id="trait"></div>
+      <p id="copyright">© 2022 CA.com</p>
+    </footer>
+</body>
+</html>
